@@ -43,7 +43,7 @@ Esse conjunto de análises apoia a **diretoria comercial, marketing e operaçõe
 ## 📂 Estrutura do Repositório  
 
 - `index.html` → documentação em formato web  
-- `dashboard/` → dashboard publicado (Power BI embed)  
+- `dashboard.html` → dashboard publicado (Power BI embed)  
 
 ---
 
