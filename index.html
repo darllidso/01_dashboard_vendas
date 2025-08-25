@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Documentação do Dashboard – Modelo</title>
+  <style>
+    :root{
+      --bg:#F3EFE8;
+      --ink:#232B3A;
+      --muted:#6B7280;
+      --card:#FFFFFF;
+      --brand:#1F2A44;
+      --border:#E5E7EB;
+      --chip:#2E3B58;
+      --chip-ink:#E8EDF7;
+      --radius:18px;
+      --shadow:0 8px 24px rgba(35,43,58,.15);
+    }
+    html,body{ height:100%; }
+    body{
+      margin:0; background:var(--bg); color:var(--ink); font:16px/1.45 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial; 
+      display:flex; align-items:flex-start; justify-content:center; padding:40px 16px; 
+    }
+    .wrap{ width:min(980px,100%); }
+
+    .card{ background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden; border:1px solid var(--border); }
+
+    .card-head{ background:var(--brand); color:#fff; padding:22px 24px; position:relative; }
+    .title{ font-size:28px; font-weight:800; letter-spacing:.2px; margin:0 0 10px; }
+
+    .chips{ display:flex; gap:10px; flex-wrap:wrap; }
+    .chip{ background:var(--chip); color:var(--chip-ink); padding:8px 12px; border-radius:999px; font-size:13px; }
+    .chip b{ font-weight:700; }
+
+    .card-body{ padding:22px 24px 26px; display:grid; gap:22px; }
+
+    section{ border:1px solid var(--border); border-radius:14px; padding:16px; background:#fff; }
+    section h2{ margin:0 0 10px; font-size:18px; letter-spacing:.2px; }
+    section p{ margin:8px 0 0; color:var(--muted); }
+    ul{ margin:6px 0 0 18px; }
+
+    table{ width:100%; border-collapse:collapse; margin-top:8px; }
+    th,td{ text-align:left; padding:10px 12px; border-top:1px solid var(--border); font-size:14px; }
+    thead th{ background:#F8FAFC; border-top:none; font-size:13px; color:#334155; text-transform:unset; }
+    tbody tr:nth-child(even){ background:#FCFCFD; }
+
+    .muted{ color:var(--muted); }
+
+    @media print{
+      body{ background:#fff; padding:0; }
+      .wrap{ width:100%; }
+      .card{ border:0; box-shadow:none; border-radius:0; }
+      .card-head{ border-radius:0; }
+      section{ break-inside:avoid; }
+    }
+
+    [contenteditable="true"]{ outline:2px dashed #93C5FD; outline-offset:2px; border-radius:6px; }
+  </style>
+</head>
+<body>
+  <main class="wrap" id="app">
+    <article class="card" id="doc">
+      <header class="card-head">
+        <h1 class="title" data-editable data-field="nome">Dashboard de Vendas</h1>
+        <div class="chips">
+          <span class="chip" data-editable data-field="criacao"><b>Data de criação:</b> 19/08/2025</span>
+          <span class="chip" data-editable data-field="atualizacao"><b>Última atualização:</b> 21/08/2025</span>
+          <span class="chip" data-editable data-field="autor"><b>Criado por:</b> Darlliane Oliveira</span>
+          <span class="chip" data-editable data-field="solicitante"><b>Solicitado por:</b> Karine Lago e Letícia Smirelli (Comunidade Data Driven)</span>
+        </div>
+      </header>
+
+      <div class="card-body">
+        <section>
+          <h2>Visão Geral</h2>
+          <ul>
+            <li data-editable><b>Objetivo do dashboard:</b> acompanhar o desempenho de vendas e apoiar decisões comerciais.</li>
+            <li data-editable><b>Público-alvo:</b> diretoria comercial, marketing e operações.</li>
+            <li data-editable><b>Contexto de negócio:</b> e-commerce com foco em receita, pedidos e itens vendidos.</li>
+            <li data-editable><b>Frequência de uso esperada:</b> semanal (diária em períodos de pico).</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Especificações Técnicas</h2>
+          <ul>
+            <li data-editable><b>Fontes de Dados:</b> planilha “Vendas - Ecommerce.xlsx”.</li>
+            <li data-editable><b>Modelo de Dados:</b> fatos de vendas relacionados a dimensões de produto, tempo, canal e pagamento.</li>
+            <li data-editable><b>Transformações e Tratamentos:</b> padronização de datas, criação de “Preço Total”, normalização de categorias e métodos de pagamento.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Estrutura do dashboard</h2>
+          <p class="muted" data-editable>Explicação do objetivo de cada KPI, visual e card, incluindo o motivo da escolha e o insight esperado.</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Nome da Medida</th>
+                <th>Explicação</th>
+                <th>É usada diretamente no dashboard?</th>
+                <th>Em qual visualização?</th>
+                <th>Por que este gráfico/card foi escolhido?</th>
+                <th>Insight gerado</th>
+              </tr>
+            </thead>
+            <tbody id="tblMedidas">
+              <tr>
+                <td contenteditable>Faturamento</td>
+                <td contenteditable>Soma do Preço Total vendido.</td>
+                <td contenteditable>Sim</td>
+                <td contenteditable>Card de valor total + gráfico de linha</td>
+                <td contenteditable>Card destaca KPI global; linha mostra evolução no tempo.</td>
+                <td contenteditable>Acompanha a tendência de vendas e identifica sazonalidade.</td>
+              </tr>
+              <tr>
+                <td contenteditable>Qtd Pedidos</td>
+                <td contenteditable>Contagem de pedidos distintos.</td>
+                <td contenteditable>Sim</td>
+                <td contenteditable>Card numérico</td>
+                <td contenteditable>Permite rápida leitura do volume de pedidos.</td>
+                <td contenteditable>Avalia a performance do fluxo de compras.</td>
+              </tr>
+              <tr>
+                <td contenteditable>Qtd Itens Vendidos</td>
+                <td contenteditable>Soma de quantidades vendidas.</td>
+                <td contenteditable>Sim</td>
+                <td contenteditable>Card numérico</td>
+                <td contenteditable>Mostra dinamismo do mix de produtos.</td>
+                <td contenteditable>Indica o total de itens movimentados.</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section>
+          <h2>Racional dos Visuais e Insights</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Visualização</th>
+                <th>Dados / Medidas</th>
+                <th>Por que escolhemos</th>
+                <th>Insight que gera</th>
+              </tr>
+            </thead>
+            <tbody id="tblVisuais">
+              <tr>
+                <td contenteditable>Card KPI – Faturamento total</td>
+                <td contenteditable>Faturamento (SUM Preço Total)</td>
+                <td contenteditable>Valor-chave visível de imediato.</td>
+                <td contenteditable>Dimensão do negócio no período.</td>
+              </tr>
+              <tr>
+                <td contenteditable>Card KPI – Qtd. Pedidos</td>
+                <td contenteditable>Pedidos (DISTINCTCOUNT ID_Pedido)</td>
+                <td contenteditable>Complementa faturamento com volume.</td>
+                <td contenteditable>Distingue crescimento por volume vs. ticket.</td>
+              </tr>
+              <tr>
+                <td contenteditable>Card KPI – Qtd. Itens Vendidos</td>
+                <td contenteditable>Itens (SUM Qtd Itens)</td>
+                <td contenteditable>Mostra intensidade do mix.</td>
+                <td contenteditable>Suporta análise de cross-sell.</td>
+              </tr>
+              <tr>
+                <td contenteditable>Linha – Faturamento ao longo do tempo</td>
+                <td contenteditable>Faturamento por Mês</td>
+                <td contenteditable>Série temporal evidencia tendência/sazonalidade.</td>
+                <td contenteditable>Identifica picos/vales e impacto de campanhas.</td>
+              </tr>
+              <tr>
+                <td contenteditable>Donut – Métodos de Pagamento</td>
+                <td contenteditable>% por método (Cartão, Boleto, Paypal)</td>
+                <td contenteditable>Leitura rápida de proporções.</td>
+                <td contenteditable>Preferência de pagamento e políticas/taxas.</td>
+              </tr>
+              <tr>
+                <td contenteditable>Donut – Representatividade por Canal</td>
+                <td contenteditable>% Website vs. Mobile App</td>
+                <td contenteditable>Mostra participação relativa entre canais.</td>
+                <td contenteditable>Prioriza otimizações por canal.</td>
+              </tr>
+              <tr>
+                <td contenteditable>Barras – Vendas por Categoria (Top N)</td>
+                <td contenteditable>Faturamento por Categoria</td>
+                <td contenteditable>Comparação precisa entre categorias.</td>
+                <td contenteditable>Aponta líderes e lacunas de portfólio.</td>
+              </tr>
+              <tr>
+                <td contenteditable>Tabela – Vendas por Categoria (detalhe)</td>
+                <td contenteditable>Faturamento por Categoria + Total</td>
+                <td contenteditable>Detalhe tabular para auditoria.</td>
+                <td contenteditable>Confirma valores e ranking.</td>
+              </tr>
+              <tr>
+                <td contenteditable>Tabela/Ranking – Produtos</td>
+                <td contenteditable>Categoria → Produto → Faturamento</td>
+                <td contenteditable>Permite ordenar e buscar itens específicos.</td>
+                <td contenteditable>Identifica best-sellers e cauda longa.</td>
+              </tr>
+              <tr>
+                <td contenteditable>Filtro (Slicer) – Produto</td>
+                <td contenteditable>Dimensão Produto</td>
+                <td contenteditable>Foco rápido em um item ou grupo.</td>
+                <td contenteditable>Analisa impacto por produto.</td>
+              </tr>
+              <tr>
+                <td contenteditable>Filtro (Slicer) – Data da Venda</td>
+                <td contenteditable>Intervalo 01/01/2023–18/08/2023</td>
+                <td contenteditable>Define horizonte temporal da análise.</td>
+                <td contenteditable>Isola períodos e sazonalidade.</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section>
+          <h2>Controle de Acesso</h2>
+          <ul>
+            <li data-editable><b>Permissões:</b> diretoria (ver/exportar), marketing (ver), operações (ver).</li>
+            <li data-editable><b>Regras de acesso:</b> restringir valores financeiros a perfis autorizados.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Histórico de Mudanças</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Versão</th>
+                <th>Data</th>
+                <th>Alteração</th>
+                <th>Responsável</th>
+              </tr>
+            </thead>
+            <tbody id="tblHistorico">
+              <tr>
+                <td contenteditable>1.0</td>
+                <td contenteditable>19/08/2025</td>
+                <td contenteditable>Criação inicial</td>
+                <td contenteditable>Darlliane Oliveira</td>
+              </tr>
+              <tr>
+                <td contenteditable>1.1</td>
+                <td contenteditable>21/08/2025</td>
+                <td contenteditable>Ajuste de cabeçalho e medidas</td>
+                <td contenteditable>Darlliane Oliveira</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </div>
+    </article>
+  </main>
+</body>
+</html>
