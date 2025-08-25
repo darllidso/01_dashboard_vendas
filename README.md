@@ -1,26 +1,50 @@
-# Documentação e Dashboard de Vendas – E-commerce
+# 📊 Documentação e Dashboard de Vendas – E-commerce  
 
-Este repositório reúne a **documentação** e o **Dashboard de Vendas**.
-
-## O que você encontrará aqui
-
-- **Documentação em HTML**: estruturada como uma ficha visual, detalhando objetivo, público-alvo, especificações técnicas e medidas do dashboard.  
-- **Dashboard**: visualização pública do painel construído no Power BI.
-
-## Estrutura
-
-- `index.html` → documentação em formato web.
-
-- `dashboard/` → pasta destinada ao dashboard publicado
-
-## Conteúdo da Documentação
-
-- **Visão Geral**: objetivo, público-alvo, contexto e frequência de uso  
-- **Especificações Técnicas**: fonte de dados, modelo de dados e transformações  
-- **Estrutura do Dashboard**: medidas utilizadas, explicações e visualizações  
-- **Racional dos Visuais e Insights**: por que cada gráfico foi escolhido e o insight que gera  
-- **Controle de Acesso**: permissões e regras  
-- **Histórico de Mudanças**: versão, data e responsáveis
+Este repositório faz parte do **curso ministrado por Karine Lago e  Letícia Smirelli (Comunidade Data Driven)** e reúne a **documentação oficial** e o **Dashboard de Vendas** desenvolvido em Power BI.  
 
 ---
-Publicado via **GitHub Pages**
+
+## 🔗 Acesse online  
+
+ [Clique aqui para abrir a documentação](https://darllidso.github.io/01_dashboard_vendas/)  
+
+---
+
+## 📖 Overview da Documentação  
+
+A documentação detalha a concepção do dashboard: objetivo, público-alvo, especificações técnicas, estrutura de dados, medidas e racional de cada visualização.  
+Isso garante que qualquer pessoa consiga entender rapidamente como o painel foi construído e quais insights ele oferece.  
+
+---
+
+## 📊 Overview do Dashboard  
+
+O **Dashboard de Vendas** foi desenvolvido para analisar a performance de um e-commerce, permitindo acompanhar tanto a visão macro (KPIs globais) quanto o detalhe por categoria e produto.  
+
+### Principais KPIs
+
+- **Faturamento Total**  
+- **Quantidade de Pedidos**  
+- **Quantidade de Itens Vendidos**  
+
+### Principais Análises
+
+- **Evolução temporal do faturamento** → identifica sazonalidade, picos de vendas e impacto de campanhas  
+- **Distribuição por métodos de pagamento** → revela preferências dos clientes (cartão, boleto, PayPal)  
+- **Representatividade por canal de venda** → compara Website x Mobile App  
+- **Vendas por categoria** → mostra as categorias mais rentáveis e aquelas com menor participação  
+- **Ranking de produtos** → identifica best-sellers e itens de cauda longa  
+- **Filtros dinâmicos (slicers)** → permitem analisar por período e por produto específico  
+
+Esse conjunto de análises apoia a **diretoria comercial, marketing e operações** na tomada de decisão, ajudando a direcionar estratégias de vendas, promoções e expansão de canais.  
+
+---
+
+## 📂 Estrutura do Repositório  
+
+- `index.html` → documentação em formato web  
+- `dashboard/` → dashboard publicado (Power BI embed)  
+
+---
+
+Publicado via **GitHub Pages** 🌍  
