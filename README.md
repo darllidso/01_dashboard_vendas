@@ -43,8 +43,10 @@ Esse conjunto de análises apoia a **diretoria comercial, marketing e operaçõe
 
 ## 📂 Estrutura do Repositório  
 
-- `index.html` → documentação em formato web  
-- `dashboard.html` → dashboard publicado (Power BI embed)  
+- `index.html` → documentação em formato web com o dashboard embedado  
+- `README.md` → descrição do projeto e links para a documentação e para o dashboard no Power BI  
+- `.gitignore` → define arquivos/pastas que não devem ser versionados no Git  
+- `LICENSE` → licença de uso e distribuição do projeto  
 
 ---
 
