@@ -7,6 +7,7 @@ Este repositório faz parte do **curso ministrado por Karine Lago e  Letícia Sm
 ## 🔗 Acesse online  
 
  [Clique aqui para abrir a documentação](https://darllidso.github.io/01_dashboard_vendas/)  
+[Clique aqui para abrir o Dashboard](https://darllidso.github.io/01_dashboard_vendas/)  
 
 ---
 

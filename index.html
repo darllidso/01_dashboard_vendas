@@ -35,7 +35,7 @@
 
     .card-body{ padding:22px 24px 26px; display:grid; gap:22px; }
 
-    section{ border:1px solid var(--border); border-radius:14px; padding:16px; background:#fff; }
+    section{ border:1px solid var(--border); border-radius:14px; padding:16px; background:#fff; margin-bottom:20px; }
     section h2{ margin:0 0 10px; font-size:18px; letter-spacing:.2px; }
     section p{ margin:8px 0 0; color:var(--muted); }
     ul{ margin:6px 0 0 18px; }
@@ -46,6 +46,16 @@
     tbody tr:nth-child(even){ background:#FCFCFD; }
 
     .muted{ color:var(--muted); }
+
+    /* ===== Botões ===== */
+    .head-row{ display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+    .btn-head{
+      background:#ffffff; color:#1F2A44; text-decoration:none;
+      padding:8px 14px; border-radius:10px; font-weight:700; font-size:14px;
+      box-shadow:0 2px 6px rgba(0,0,0,.15); transition:.2s;
+      white-space:nowrap;
+    }
+    .btn-head:hover{ transform:translateY(-1px); }
 
     @media print{
       body{ background:#fff; padding:0; }
@@ -62,7 +72,9 @@
   <main class="wrap" id="app">
     <article class="card" id="doc">
       <header class="card-head">
-        <h1 class="title" data-editable data-field="nome">Dashboard de Vendas</h1>
+        <div class="head-row">
+          <h1 class="title" data-editable data-field="nome" style="margin:0;">Dashboard de Vendas</h1>
+        </div>
         <div class="chips">
           <span class="chip" data-editable data-field="criacao"><b>Data de criação:</b> 19/08/2025</span>
           <span class="chip" data-editable data-field="atualizacao"><b>Última atualização:</b> 21/08/2025</span>
@@ -72,6 +84,25 @@
       </header>
 
       <div class="card-body">
+
+        <!-- 🔹 Dashboard embedado logo no início -->
+        <section>
+          <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; margin-bottom:12px;">
+            <h2 style="margin:0;">Dashboard Interativo</h2>
+            <a class="btn-head" target="_blank"
+               href="https://app.powerbi.com/view?r=eyJrIjoiN2EzNTdmZjQtMTFlNS00OTJhLTllMjAtYWJkZjU1MGYzYWYwIiwidCI6IjU1YTA5ZmM3LThhZjgtNDA5MC1hNmExLTkxM2Q5YzNmYzU4NSJ9">
+               Abrir no Power BI
+            </a>
+          </div>
+          <iframe title="Dashboard de Vendas" 
+                  width="100%" height="600" 
+                  src="https://app.powerbi.com/view?r=eyJrIjoiN2EzNTdmZjQtMTFlNS00OTJhLTllMjAtYWJkZjU1MGYzYWYwIiwidCI6IjU1YTA5ZmM3LThhZjgtNDA5MC1hNmExLTkxM2Q5YzNmYzU4NSJ9" 
+                  frameborder="0" allowFullScreen="true"
+                  style="border-radius:12px; box-shadow:0 6px 16px rgba(0,0,0,.15);">
+          </iframe>
+        </section>
+
+        <!-- 🔹 Restante da documentação -->
         <section>
           <h2>Visão Geral</h2>
           <ul>
@@ -251,14 +282,6 @@
             </tbody>
           </table>
         </section>
-
-        <!-- 🔗 Botão para abrir dashboard -->
-        <div style="text-align:center; margin-top:30px;">
-          <a href="https://app.powerbi.com/view?r=eyJrIjoiN2EzNTdmZjQtMTFlNS00OTJhLTllMjAtYWJkZjU1MGYzYWYwIiwidCI6IjU1YTA5ZmM3LThhZjgtNDA5MC1hNmExLTkxM2Q5YzNmYzU4NSJ9" 
-             target="_blank" class="btn-dashboard">
-            👉 Abrir Dashboard Interativo
-          </a>
-        </div>
       </div>
     </article>
   </main>
