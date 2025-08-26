@@ -66,62 +66,8 @@
       section{ break-inside:avoid; }
     }
 
-    [contenteditable="true"]{ outline:2px dashed #93C5FD; outline-offset:2px; border-radius:6px; }
-  
-@media (max-width: 768px) {
-  body {
-    padding: 24px 12px;
-  }
-  .card-head {
-    padding: 18px 16px;
-  }
-  .card-body {
-    padding: 18px 16px;
-  }
-  .title {
-    font-size: 22px;
-    line-height: 1.2;
-  }
-  .chips {
-    flex-direction: column;
-    gap: 6px;
-  }
-  .head-row {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 6px;
-  }
-  iframe {
-    height: 400px !important;
-  }
-  table thead {
-    display: none;
-  }
-  table, tbody, tr, td {
-    display: block;
-    width: 100%;
-  }
-  table tr {
-    margin-bottom: 12px;
-    border-bottom: 1px solid var(--border);
-    padding-bottom: 8px;
-  }
-  table td {
-    text-align: left;
-    padding: 6px 8px;
-    font-size: 14px;
-    position: relative;
-  }
-  table td::before {
-    content: attr(data-label);
-    font-weight: bold;
-    display: block;
-    color: var(--muted);
-    font-size: 12px;
-    margin-bottom: 2px;
-  }
-}
-</style>
+    
+  </style>
 </head>
 <body>
 <main class="wrap" id="app">
@@ -183,28 +129,28 @@
 </thead>
 <tbody id="tblMedidas">
 <tr>
-<td contenteditable="" data-label="Nome da Medida">Faturamento</td>
-<td contenteditable="" data-label="Explicação">Soma do Preço Total vendido.</td>
-<td contenteditable="" data-label="É usada diretamente no dashboard?">Sim</td>
-<td contenteditable="" data-label="Em qual visualização?">Card de valor total + gráfico de linha</td>
-<td contenteditable="" data-label="Por que este gráfico/card foi escolhido?">Card destaca KPI global; linha mostra evolução no tempo.</td>
-<td contenteditable="" data-label="Insight gerado">Acompanha a tendência de vendas e identifica sazonalidade.</td>
+<td>Faturamento</td>
+<td>Soma do Preço Total vendido.</td>
+<td>Sim</td>
+<td>Card de valor total + gráfico de linha</td>
+<td>Card destaca KPI global; linha mostra evolução no tempo.</td>
+<td>Acompanha a tendência de vendas e identifica sazonalidade.</td>
 </tr>
 <tr>
-<td contenteditable="" data-label="Nome da Medida">Qtd Pedidos</td>
-<td contenteditable="" data-label="Explicação">Contagem de pedidos distintos.</td>
-<td contenteditable="" data-label="É usada diretamente no dashboard?">Sim</td>
-<td contenteditable="" data-label="Em qual visualização?">Card numérico</td>
-<td contenteditable="" data-label="Por que este gráfico/card foi escolhido?">Permite rápida leitura do volume de pedidos.</td>
-<td contenteditable="" data-label="Insight gerado">Avalia a performance do fluxo de compras.</td>
+<td>Qtd Pedidos</td>
+<td>Contagem de pedidos distintos.</td>
+<td>Sim</td>
+<td>Card numérico</td>
+<td>Permite rápida leitura do volume de pedidos.</td>
+<td>Avalia a performance do fluxo de compras.</td>
 </tr>
 <tr>
-<td contenteditable="" data-label="Nome da Medida">Qtd Itens Vendidos</td>
-<td contenteditable="" data-label="Explicação">Soma de quantidades vendidas.</td>
-<td contenteditable="" data-label="É usada diretamente no dashboard?">Sim</td>
-<td contenteditable="" data-label="Em qual visualização?">Card numérico</td>
-<td contenteditable="" data-label="Por que este gráfico/card foi escolhido?">Mostra dinamismo do mix de produtos.</td>
-<td contenteditable="" data-label="Insight gerado">Indica o total de itens movimentados.</td>
+<td>Qtd Itens Vendidos</td>
+<td>Soma de quantidades vendidas.</td>
+<td>Sim</td>
+<td>Card numérico</td>
+<td>Mostra dinamismo do mix de produtos.</td>
+<td>Indica o total de itens movimentados.</td>
 </tr>
 </tbody>
 </table>
@@ -222,70 +168,70 @@
 </thead>
 <tbody id="tblVisuais">
 <tr>
-<td contenteditable="" data-label="Visualização">Card KPI – Faturamento total</td>
-<td contenteditable="" data-label="Dados / Medidas">Faturamento (SUM Preço Total)</td>
-<td contenteditable="" data-label="Por que escolhemos">Valor-chave visível de imediato.</td>
-<td contenteditable="" data-label="Insight que gera">Dimensão do negócio no período.</td>
+<td>Card KPI – Faturamento total</td>
+<td>Faturamento (SUM Preço Total)</td>
+<td>Valor-chave visível de imediato.</td>
+<td>Dimensão do negócio no período.</td>
 </tr>
 <tr>
-<td contenteditable="" data-label="Visualização">Card KPI – Qtd. Pedidos</td>
-<td contenteditable="" data-label="Dados / Medidas">Pedidos (DISTINCTCOUNT ID_Pedido)</td>
-<td contenteditable="" data-label="Por que escolhemos">Complementa faturamento com volume.</td>
-<td contenteditable="" data-label="Insight que gera">Distingue crescimento por volume vs. ticket.</td>
+<td>Card KPI – Qtd. Pedidos</td>
+<td>Pedidos (DISTINCTCOUNT ID_Pedido)</td>
+<td>Complementa faturamento com volume.</td>
+<td>Distingue crescimento por volume vs. ticket.</td>
 </tr>
 <tr>
-<td contenteditable="" data-label="Visualização">Card KPI – Qtd. Itens Vendidos</td>
-<td contenteditable="" data-label="Dados / Medidas">Itens (SUM Qtd Itens)</td>
-<td contenteditable="" data-label="Por que escolhemos">Mostra intensidade do mix.</td>
-<td contenteditable="" data-label="Insight que gera">Suporta análise de cross-sell.</td>
+<td>Card KPI – Qtd. Itens Vendidos</td>
+<td>Itens (SUM Qtd Itens)</td>
+<td>Mostra intensidade do mix.</td>
+<td>Suporta análise de cross-sell.</td>
 </tr>
 <tr>
-<td contenteditable="" data-label="Visualização">Linha – Faturamento ao longo do tempo</td>
-<td contenteditable="" data-label="Dados / Medidas">Faturamento por Mês</td>
-<td contenteditable="" data-label="Por que escolhemos">Série temporal evidencia tendência/sazonalidade.</td>
-<td contenteditable="" data-label="Insight que gera">Identifica picos/vales e impacto de campanhas.</td>
+<td>Linha – Faturamento ao longo do tempo</td>
+<td>Faturamento por Mês</td>
+<td>Série temporal evidencia tendência/sazonalidade.</td>
+<td>Identifica picos/vales e impacto de campanhas.</td>
 </tr>
 <tr>
-<td contenteditable="" data-label="Visualização">Donut – Métodos de Pagamento</td>
-<td contenteditable="" data-label="Dados / Medidas">% por método (Cartão, Boleto, Paypal)</td>
-<td contenteditable="" data-label="Por que escolhemos">Leitura rápida de proporções.</td>
-<td contenteditable="" data-label="Insight que gera">Preferência de pagamento e políticas/taxas.</td>
+<td>Donut – Métodos de Pagamento</td>
+<td>% por método (Cartão, Boleto, Paypal)</td>
+<td>Leitura rápida de proporções.</td>
+<td>Preferência de pagamento e políticas/taxas.</td>
 </tr>
 <tr>
-<td contenteditable="" data-label="Visualização">Donut – Representatividade por Canal</td>
-<td contenteditable="" data-label="Dados / Medidas">% Website vs. Mobile App</td>
-<td contenteditable="" data-label="Por que escolhemos">Mostra participação relativa entre canais.</td>
-<td contenteditable="" data-label="Insight que gera">Prioriza otimizações por canal.</td>
+<td>Donut – Representatividade por Canal</td>
+<td>% Website vs. Mobile App</td>
+<td>Mostra participação relativa entre canais.</td>
+<td>Prioriza otimizações por canal.</td>
 </tr>
 <tr>
-<td contenteditable="" data-label="Visualização">Barras – Vendas por Categoria (Top N)</td>
-<td contenteditable="" data-label="Dados / Medidas">Faturamento por Categoria</td>
-<td contenteditable="" data-label="Por que escolhemos">Comparação precisa entre categorias.</td>
-<td contenteditable="" data-label="Insight que gera">Aponta líderes e lacunas de portfólio.</td>
+<td>Barras – Vendas por Categoria (Top N)</td>
+<td>Faturamento por Categoria</td>
+<td>Comparação precisa entre categorias.</td>
+<td>Aponta líderes e lacunas de portfólio.</td>
 </tr>
 <tr>
-<td contenteditable="" data-label="Visualização">Tabela – Vendas por Categoria (detalhe)</td>
-<td contenteditable="" data-label="Dados / Medidas">Faturamento por Categoria + Total</td>
-<td contenteditable="" data-label="Por que escolhemos">Detalhe tabular para auditoria.</td>
-<td contenteditable="" data-label="Insight que gera">Confirma valores e ranking.</td>
+<td>Tabela – Vendas por Categoria (detalhe)</td>
+<td>Faturamento por Categoria + Total</td>
+<td>Detalhe tabular para auditoria.</td>
+<td>Confirma valores e ranking.</td>
 </tr>
 <tr>
-<td contenteditable="" data-label="Visualização">Tabela/Ranking – Produtos</td>
-<td contenteditable="" data-label="Dados / Medidas">Categoria → Produto → Faturamento</td>
-<td contenteditable="" data-label="Por que escolhemos">Permite ordenar e buscar itens específicos.</td>
-<td contenteditable="" data-label="Insight que gera">Identifica best-sellers e cauda longa.</td>
+<td>Tabela/Ranking – Produtos</td>
+<td>Categoria → Produto → Faturamento</td>
+<td>Permite ordenar e buscar itens específicos.</td>
+<td>Identifica best-sellers e cauda longa.</td>
 </tr>
 <tr>
-<td contenteditable="" data-label="Visualização">Filtro (Slicer) – Produto</td>
-<td contenteditable="" data-label="Dados / Medidas">Dimensão Produto</td>
-<td contenteditable="" data-label="Por que escolhemos">Foco rápido em um item ou grupo.</td>
-<td contenteditable="" data-label="Insight que gera">Analisa impacto por produto.</td>
+<td>Filtro (Slicer) – Produto</td>
+<td>Dimensão Produto</td>
+<td>Foco rápido em um item ou grupo.</td>
+<td>Analisa impacto por produto.</td>
 </tr>
 <tr>
-<td contenteditable="" data-label="Visualização">Filtro (Slicer) – Data da Venda</td>
-<td contenteditable="" data-label="Dados / Medidas">Intervalo 01/01/2023–18/08/2023</td>
-<td contenteditable="" data-label="Por que escolhemos">Define horizonte temporal da análise.</td>
-<td contenteditable="" data-label="Insight que gera">Isola períodos e sazonalidade.</td>
+<td>Filtro (Slicer) – Data da Venda</td>
+<td>Intervalo 01/01/2023–18/08/2023</td>
+<td>Define horizonte temporal da análise.</td>
+<td>Isola períodos e sazonalidade.</td>
 </tr>
 </tbody>
 </table>
@@ -310,16 +256,16 @@
 </thead>
 <tbody id="tblHistorico">
 <tr>
-<td contenteditable="" data-label="Versão">1.0</td>
-<td contenteditable="" data-label="Data">19/08/2025</td>
-<td contenteditable="" data-label="Alteração">Criação inicial</td>
-<td contenteditable="" data-label="Responsável">Darlliane Oliveira</td>
+<td>1.0</td>
+<td>19/08/2025</td>
+<td>Criação inicial</td>
+<td>Darlliane Oliveira</td>
 </tr>
 <tr>
-<td contenteditable="" data-label="Versão">1.1</td>
-<td contenteditable="" data-label="Data">21/08/2025</td>
-<td contenteditable="" data-label="Alteração">Ajuste de cabeçalho e medidas</td>
-<td contenteditable="" data-label="Responsável">Darlliane Oliveira</td>
+<td>1.1</td>
+<td>21/08/2025</td>
+<td>Ajuste de cabeçalho e medidas</td>
+<td>Darlliane Oliveira</td>
 </tr>
 </tbody>
 </table>
