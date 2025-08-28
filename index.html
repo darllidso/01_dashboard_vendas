@@ -4,7 +4,8 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>Documentação do Dashboard – Modelo</title>
+<title>Dash de Vendas – Doc Interativa</title>
+<link rel="icon" href="icon_transparent.png" type="image/png">
 <style>:root{
       --bg:#F3EFE8;
       --ink:#232B3A;
@@ -19,8 +20,15 @@
     }
     html,body{ height:100%; }
     body{
-      margin:0; background:var(--bg); color:var(--ink); font:16px/1.45 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial; 
-      display:flex; align-items:flex-start; justify-content:center; padding:40px 16px; 
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font: 16px/1.45 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial;
+        display: flex;
+        flex-direction: column; /* ← Isso garante empilhamento vertical */
+        align-items: center;
+        padding: 40px 16px;
+        min-height: 100vh; /* ← Garante altura mínima da tela inteira */
     }
     .wrap{ width:min(980px,100%); }
 
@@ -35,27 +43,55 @@
 
     .card-body{ padding:22px 24px 26px; display:grid; gap:22px; }
 
-    section{ border:1px solid var(--border); border-radius:14px; padding:16px; background:#fff; margin-bottom:20px; }
+    section{ border:1px solid var(--border); border-radius:14px; padding:16px; background:var(--card); margin-bottom:20px; }
     section h2{ margin:0 0 10px; font-size:18px; letter-spacing:.2px; }
     section p{ margin:8px 0 0; color:var(--muted); }
     ul{ margin:6px 0 0 18px; }
 
     table{ width:100%; border-collapse:collapse; margin-top:8px; }
-    th,td{ text-align:left; padding:10px 12px; border-top:1px solid var(--border); font-size:14px; }
-    thead th{ background:#F8FAFC; border-top:none; font-size:13px; color:#334155; text-transform:unset; }
-    tbody tr:nth-child(even){ background:#FCFCFD; }
+    th,td{ text-align:left; padding:10px 12px; border-top:1px solid var(--border); font-size:14px; color: var(--ink);  }
+    thead th{ 
+      background: var(--card); /* fallback */
+      background: color-mix(in oklab, var(--card), var(--ink) 6%);
+      border-top:none; font-size:13px; color: var(--ink); text-transform:unset;
+     }
+    tbody tr:nth-child(even){ 
+      background: var(--card); /* fallback */
+      background: color-mix(in oklab, var(--card), var(--ink) 4%);
+     }
 
     .muted{ color:var(--muted); }
 
     /* ===== Botões ===== */
     .head-row{ display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; }
     .btn-head{
-      background:#ffffff; color:#1F2A44; text-decoration:none;
+      background:var(--card); color:var(--brand); text-decoration:none;
       padding:8px 14px; border-radius:10px; font-weight:700; font-size:14px;
       box-shadow:0 2px 6px rgba(0,0,0,.15); transition:.2s;
       white-space:nowrap;
     }
     .btn-head:hover{ transform:translateY(-1px); }
+    #toggleTheme {
+      background: white;       /* fundo branco */
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 6px 12px;
+      cursor: pointer;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: bold;
+      color: #111827;      /* texto no modo escuro */
+      transition: all 0.3s ease;
+    }
+
+    /* Quando estiver no modo claro */
+    [data-theme="light"] #toggleTheme {
+      background: white;       /* botão branco */
+      color: #111827;          /* texto preto */
+      border: 1px solid #D1D5DB;
+    }
 
     @media print{
       body{ background:#fff; padding:0; }
@@ -117,7 +153,88 @@
     margin-bottom: 2px;
   }
 }
+.footer {
+  margin-top: 40px;
+  padding: 24px 16px;
+  text-align: center;
+  font-size: 14px;
+  color: var(--muted);
+  background: transparent;
+}
+
+.footer-content a {
+  color: var(--ink);
+  text-decoration: underline;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.footer-content a:hover {
+  color: var(--brand);
+}
+
 </style>
+<style id="theme-vars">
+  :root {
+    --bg: #F3EFE8;
+    --ink: #232B3A;
+    --muted: #6B7280;
+    --card: #FFFFFF;
+    --brand: #1F2A44;
+    --border: #E5E7EB;
+    --chip: #2E3B58;
+    --chip-ink: #E8EDF7;
+  }
+
+  [data-theme="dark"] {
+    --bg: #1A1A1A;
+    --ink: #F9FAFB;
+    --muted: #9CA3AF;
+    --card: #2C2C2C;
+    --brand: #3B82F6;
+    --border: #374151;
+    --chip: #4B5563;
+    --chip-ink: #D1D5DB;
+  }
+
+  body {
+    transition: background 0.3s, color 0.3s;
+  }
+
+  .card, section, .chip {
+    transition: background 0.3s, color 0.3s, border 0.3s;
+  }  
+  /* Garante que textos sigam a cor do tema atual */
+  section, section h2, section p, section li, section b {
+    color: var(--ink);
+  }
+
+  .theme-toggle {
+  margin-left: auto;
+  padding: 8px 14px;
+  font-size: 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: background 0.3s, color 0.3s, border 0.3s;
+  background: var(--brand);
+  color: white;
+  border: 2px solid var(--brand);
+}
+[data-theme="dark"] .theme-toggle {
+  background: white;
+  color: var(--brand);
+  border-color: white;
+}
+.theme-toggle:hover {
+  opacity: 0.9;
+}
+
+
+</style>
+
 </head>
 <body>
 <main class="wrap" id="app">
@@ -125,6 +242,12 @@
 <header class="card-head">
 <div class="head-row">
 <h1 class="title" data-editable="" data-field="nome" style="margin:0;">Dashboard de Vendas</h1>
+<button id="toggleTheme" class="theme-toggle">
+  <span id="themeIcon">🌙</span>
+  <span id="themeText">Modo escuro</span>
+</button>
+
+
 </div>
 <div class="chips">
 <span class="chip" data-editable="" data-field="criacao"><b>Data de criação:</b> 19/08/2025</span>
@@ -323,5 +446,42 @@
 </div>
 </article>
 </main>
+<footer class="footer">
+  <div class="footer-content">
+    <p>Feito com 💙 em dados por Darlliane Oliveira.</p>
+    <p>
+      <a href="https://www.linkedin.com/in/darlliane-oliveira-697b16376/" target="_blank" rel="noopener noreferrer" class="linkedin-icon" aria-label="LinkedIn de Darlliane Oliveira">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11.75 20h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.783 1.75-1.75 1.75zm13.25 12.268h-3v-5.5c0-1.105-.895-2-2-2s-2 .895-2 2v5.5h-3v-11h3v1.528c.604-.96 1.67-1.528 2.75-1.528 2.066 0 3.75 1.684 3.75 3.75v7.25z"/>
+        </svg>
+      </a>
+    </p>
+    <p class="muted">&copy; 2025 – Todos os direitos reservados.</p>
+  </div>
+</footer>
+<!-- Troca de tema -->
+<script>
+  const btn = document.getElementById('toggleTheme');
+  const icon = document.getElementById('themeIcon');
+  const text = document.getElementById('themeText');
+  const html = document.documentElement;
+  let theme = localStorage.getItem('theme') || 'light';
+
+  function applyTheme(th) {
+    html.setAttribute('data-theme', th);
+    icon.textContent = th === 'dark' ? '☀️' : '🌙';
+    text.textContent = th === 'dark' ? 'Light' : 'Dark';
+    localStorage.setItem('theme', th);
+  }
+
+  applyTheme(theme);
+
+  btn.addEventListener('click', () => {
+    theme = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    applyTheme(theme);
+  });
+</script>
+</body>
+</html>
 </body>
 </html>
